@@ -26,13 +26,13 @@ public class AccountController {
         return commonResponseGenerator.successResponse("hello api", "Success");
     }
 
-    @PostMapping(value = "addAccount")
+    @PostMapping(value = "addaccount")
     public CommonResponse<Account> addHuman(@RequestBody Account param){
         accountRepositories.save(param);
         return commonResponseGenerator.successResponse(param, "success add new Account ");
     }
 
-    @GetMapping(value = "getAllAccount")
+    @GetMapping(value = "getallaccount")
     public CommonResponse<List<Account>> getAllCar(){
         return commonResponseGenerator.successResponse(accountRepositories.findAll(), "Success get all");
     }
@@ -42,12 +42,12 @@ public class AccountController {
         return commonResponseGenerator.successResponse(accountRepositories.findById(id).get(), "Success get by id");
     }
 
-    @PutMapping(value = "updatehuman")
+    @PutMapping(value = "updateaccount")
     public CommonResponse<Account> updateHuman(@RequestBody Account param){
         return commonResponseGenerator.successResponse(accountRepositories.save(param), "success Update data id " + param.getId());
     }
 
-    @DeleteMapping(value = "deletehuman")
+    @DeleteMapping(value = "deleteaccount")
     public CommonResponse<List<Account>> delete(@RequestParam int id){
 //        Human human = humanRepositories.findById(id).get();
         accountRepositories.deleteById(id);
